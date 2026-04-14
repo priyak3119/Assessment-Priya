@@ -10,24 +10,31 @@
 <body>
     <div class="page-shell">
         <header class="page-header">
-            <div class="brand-block">
-                <span class="brand-label">BPM Centre of Excellence</span>
-                <p class="brand-subtitle">Business Excellence & Governance - Process Intelligence</p>
+            <div class="header-left">
+                <div class="brand-block">
+                    <span class="brand-label">BPM Centre of Excellence</span>
+                    <p class="brand-subtitle">Business Excellence & Governance - Process Intelligence</p>
+                </div>
             </div>
-            <nav class="page-nav">
-                <a href="#kpi-section">Value Chain</a>
-                <a href="#charts-section">Organisation</a>
-                <a href="#bottom-section">Insurance Lifecycle</a>
-            </nav>
-            <div class="header-meta">
-                <span id="header-date">25 March 2026</span>
-                <strong>Q1 2026 - Week 12</strong>
+            <div class="header-center">
+                <nav class="page-nav">
+                    <a href="#kpi-section">Value Chain</a>
+                    <a href="#charts-section">Organisation</a>
+                    <a href="#bottom-section">Insurance Lifecycle</a>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="viewing-chip">Viewing All</div>
+                <div class="header-meta">
+                    <span id="header-date">25 March 2026</span>
+                    <strong>Q1 2026 · Week 12</strong>
+                </div>
             </div>
         </header>
 
         <section id="kpi-section" class="kpi-section">
             <div class="kpi-card" data-key="process_maturity">
-                <div>
+                <div class="kpi-content">
                     <p class="kpi-label">PROCESS MATURITY</p>
                     <div class="kpi-value-row">
                         <h2 class="kpi-value" id="maturity-value">3.2</h2>
@@ -38,7 +45,7 @@
                 <div class="sparkline" id="maturity-spark"></div>
             </div>
             <div class="kpi-card" data-key="process_health">
-                <div>
+                <div class="kpi-content">
                     <p class="kpi-label">PROCESS HEALTH</p>
                     <div class="kpi-value-row">
                         <h2 class="kpi-value" id="health-value">76.4</h2>
@@ -49,7 +56,7 @@
                 <div class="sparkline" id="health-spark"></div>
             </div>
             <div class="kpi-card" data-key="op_efficiency">
-                <div>
+                <div class="kpi-content">
                     <p class="kpi-label">OPERATIONAL EFFICIENCY</p>
                     <div class="kpi-value-row">
                         <h2 class="kpi-value" id="efficiency-value">68</h2>
@@ -60,7 +67,7 @@
                 <div class="sparkline" id="efficiency-spark"></div>
             </div>
             <div class="kpi-card" data-key="cost_to_serve">
-                <div>
+                <div class="kpi-content">
                     <p class="kpi-label">COST TO SERVE</p>
                     <div class="kpi-value-row">
                         <h2 class="kpi-value" id="cost-value">920</h2>
@@ -81,10 +88,12 @@
                     </div>
                     <div class="panel-big-value" id="health-current">76.4</div>
                 </div>
-                <canvas id="healthLineChart"></canvas>
-                <div class="toggle-row">
-                    <label><input type="radio" name="healthToggle" value="this_month" checked /> This month</label>
-                    <label><input type="radio" name="healthToggle" value="last_month" /> Last month</label>
+                <div class="chart-wrapper">
+                    <canvas id="healthLineChart"></canvas>
+                </div>
+                <div class="legend-row">
+                    <div class="legend-item"><span class="legend-swatch blue"></span> This month</div>
+                    <div class="legend-item"><span class="legend-swatch grey"></span> Last month</div>
                 </div>
             </article>
             <article class="panel chart-panel">
@@ -95,7 +104,9 @@
                     </div>
                     <div class="panel-big-value" id="actions-total">47</div>
                 </div>
-                <canvas id="actionsBarChart"></canvas>
+                <div class="chart-wrapper">
+                    <canvas id="actionsBarChart"></canvas>
+                </div>
                 <div class="actions-stats">
                     <div class="stat-item stat-success">
                         <span>Completed</span>
@@ -129,7 +140,9 @@
                         <p class="panel-label">Initiative by Function</p>
                     </div>
                 </div>
-                <canvas id="initiativeChart"></canvas>
+                <div class="chart-wrapper initiative-chart-wrapper">
+                    <canvas id="initiativeChart"></canvas>
+                </div>
             </article>
             <article class="panel roi-panel">
                 <div class="roi-label">RETURN ON INVESTMENT</div>

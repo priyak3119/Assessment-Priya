@@ -22,7 +22,8 @@ function setTrendText(elementId, trendText) {
     const element = document.getElementById(elementId);
     if (!element) return;
     const isNegative = trendText.trim().startsWith('-');
-    element.textContent = trendText;
+    const symbol = isNegative ? '▼' : '▲';
+    element.innerHTML = `<span>${symbol}</span><span>${trendText}</span>`;
     element.classList.toggle('positive', !isNegative);
     element.classList.toggle('negative', isNegative);
 }
@@ -124,7 +125,7 @@ function renderCharts(dashboard) {
                     grid: { display: false },
                 },
             },
-            plugins: { legend: { position: 'bottom' } },
+            plugins: { legend: { display: false } },
         },
     });
 
@@ -202,18 +203,6 @@ function renderCharts(dashboard) {
     document.getElementById('roi-trend').textContent = dashboard.roi.trend;
     document.getElementById('health-current').textContent = dashboard.weekly_health.this_month.slice(-1)[0];
     renderRoadmap(dashboard.roadmap);
-
-    const healthToggle = document.querySelectorAll('input[name="healthToggle"]');
-    healthToggle.forEach((radio) => {
-        radio.addEventListener('change', () => {
-            const dataset = radio.value === 'this_month'
-                ? dashboard.weekly_health.this_month
-                : dashboard.weekly_health.last_month;
-            healthChart.data.datasets[0].data = dataset;
-            healthChart.update();
-            document.getElementById('health-current').textContent = dataset.slice(-1)[0];
-        });
-    });
 }
 
 async function loadData() {

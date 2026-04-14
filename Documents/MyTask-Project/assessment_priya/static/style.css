@@ -5,22 +5,27 @@
 body {
     margin: 0;
     font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #f4f7fb;
+    background: #ebf1f7;
     color: #1f2937;
 }
 
 .page-shell {
-    max-width: 1280px;
+    max-width: 1320px;
     margin: 0 auto;
-    padding: 24px;
+    padding: 28px;
 }
 
 .page-header {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 0.8fr;
+    grid-template-columns: 1.4fr 1fr 0.8fr;
     gap: 20px;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
+    padding: 22px 24px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
 }
 
 .brand-label {
@@ -46,17 +51,35 @@ body {
 }
 
 .page-nav a {
-    padding: 10px 18px;
+    padding: 10px 20px;
     text-decoration: none;
     color: #334155;
-    background: #ffffff;
+    background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 999px;
     font-size: 0.95rem;
+    font-weight: 600;
 }
 
 .page-nav a:hover {
-    background: #e2e8f0;
+    background: #eff6ff;
+}
+
+.header-right {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.viewing-chip {
+    padding: 8px 14px;
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
 }
 
 .header-meta {
@@ -80,22 +103,27 @@ body {
 
 .kpi-card {
     display: flex;
-    align-items: stretch;
     justify-content: space-between;
+    align-items: center;
     gap: 18px;
-    padding: 22px;
+    padding: 24px;
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 24px;
-    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.05);
+    border-radius: 22px;
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.06);
+    min-height: 170px;
 }
 
 .kpi-label {
-    margin: 0 0 12px;
-    color: #94a3b8;
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
+    margin: 0 0 10px;
+    color: #64748b;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
+}
+
+.kpi-content {
+    max-width: 220px;
 }
 
 .kpi-value-row {
@@ -143,7 +171,7 @@ body {
 .sparkline div {
     width: 100%;
     border-radius: 999px;
-    background: #c7d2fe;
+    background: linear-gradient(180deg, #60a5fa, #2563eb);
 }
 
 .charts-section {
@@ -162,8 +190,43 @@ body {
 }
 
 .chart-panel {
-    min-height: 420px;
+    min-height: 460px;
 }
+
+.chart-wrapper {
+    position: relative;
+    min-height: 320px;
+}
+
+.chart-wrapper canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.legend-row {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    margin-top: 18px;
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+.legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legend-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    display: inline-block;
+}
+
+.legend-swatch.blue { background: #2563eb; }
+.legend-swatch.grey { background: #94a3b8; }
 
 .panel-header {
     display: flex;
@@ -210,7 +273,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
-    margin-top: 18px;
+    margin-top: 20px;
 }
 
 .stat-item {
@@ -239,12 +302,50 @@ body {
 
 .bottom-section {
     display: grid;
-    grid-template-columns: 1fr 1.3fr 0.8fr;
+    grid-template-columns: 1fr 1.35fr 0.85fr;
     gap: 24px;
 }
 
 .roadmap-panel, .initiative-panel, .roi-panel {
-    min-height: 370px;
+    min-height: 420px;
+}
+
+.roadmap-panel {
+    padding-bottom: 20px;
+}
+
+.roadmap-item {
+    padding: 18px 18px 14px;
+    background: #f8fafc;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+}
+
+.roadmap-name {
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    border-radius: 999px;
+    background: #e2e8f0;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #2563eb, #60a5fa);
+}
+
+.progress-label {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: #64748b;
+    font-size: 0.9rem;
 }
 
 .roadmap-item {
@@ -300,11 +401,12 @@ body {
 }
 
 .roi-panel {
-    background: #0a162d;
+    background: linear-gradient(180deg, #0b1732, #061023);
     color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 28px;
 }
 
 .roi-label {
