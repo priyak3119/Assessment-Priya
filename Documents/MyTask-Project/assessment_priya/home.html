@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BPM Centre of Excellence</title>
+    <link rel="stylesheet" href="static/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="page-header">
+            <div class="brand-block">
+                <span class="brand-label">BPM Centre of Excellence</span>
+                <p class="brand-subtitle">Business Excellence & Governance - Process Intelligence</p>
+            </div>
+            <nav class="page-nav">
+                <a href="#kpi-section">Value Chain</a>
+                <a href="#charts-section">Organisation</a>
+                <a href="#bottom-section">Insurance Lifecycle</a>
+            </nav>
+            <div class="header-meta">
+                <span id="header-date">25 March 2026</span>
+                <strong>Q1 2026 - Week 12</strong>
+            </div>
+        </header>
+
+        <section id="kpi-section" class="kpi-section">
+            <div class="kpi-card" data-key="process_maturity">
+                <div>
+                    <p class="kpi-label">PROCESS MATURITY</p>
+                    <div class="kpi-value-row">
+                        <h2 class="kpi-value" id="maturity-value">3.2</h2>
+                        <span class="kpi-unit">/ 5</span>
+                    </div>
+                    <p class="kpi-trend" id="maturity-trend"></p>
+                </div>
+                <div class="sparkline" id="maturity-spark"></div>
+            </div>
+            <div class="kpi-card" data-key="process_health">
+                <div>
+                    <p class="kpi-label">PROCESS HEALTH</p>
+                    <div class="kpi-value-row">
+                        <h2 class="kpi-value" id="health-value">76.4</h2>
+                        <span class="kpi-unit">%</span>
+                    </div>
+                    <p class="kpi-trend" id="health-trend"></p>
+                </div>
+                <div class="sparkline" id="health-spark"></div>
+            </div>
+            <div class="kpi-card" data-key="op_efficiency">
+                <div>
+                    <p class="kpi-label">OPERATIONAL EFFICIENCY</p>
+                    <div class="kpi-value-row">
+                        <h2 class="kpi-value" id="efficiency-value">68</h2>
+                        <span class="kpi-unit">%</span>
+                    </div>
+                    <p class="kpi-trend" id="efficiency-trend"></p>
+                </div>
+                <div class="sparkline" id="efficiency-spark"></div>
+            </div>
+            <div class="kpi-card" data-key="cost_to_serve">
+                <div>
+                    <p class="kpi-label">COST TO SERVE</p>
+                    <div class="kpi-value-row">
+                        <h2 class="kpi-value" id="cost-value">920</h2>
+                        <span class="kpi-unit">AED</span>
+                    </div>
+                    <p class="kpi-trend" id="cost-trend"></p>
+                </div>
+                <div class="sparkline" id="cost-spark"></div>
+            </div>
+        </section>
+
+        <section id="charts-section" class="charts-section">
+            <article class="panel chart-panel">
+                <div class="panel-header">
+                    <div>
+                        <p class="panel-label">Process Health Score</p>
+                        <p class="panel-subtitle">Weekly tracking - Q1 2026</p>
+                    </div>
+                    <div class="panel-big-value" id="health-current">76.4</div>
+                </div>
+                <canvas id="healthLineChart"></canvas>
+                <div class="toggle-row">
+                    <label><input type="radio" name="healthToggle" value="this_month" checked /> This month</label>
+                    <label><input type="radio" name="healthToggle" value="last_month" /> Last month</label>
+                </div>
+            </article>
+            <article class="panel chart-panel">
+                <div class="panel-header">
+                    <div>
+                        <p class="panel-label">Improvement Actions</p>
+                        <p class="panel-subtitle"><span id="actions-prev">31</span> previous period</p>
+                    </div>
+                    <div class="panel-big-value" id="actions-total">47</div>
+                </div>
+                <canvas id="actionsBarChart"></canvas>
+                <div class="actions-stats">
+                    <div class="stat-item stat-success">
+                        <span>Completed</span>
+                        <strong id="completed-count">29</strong>
+                    </div>
+                    <div class="stat-item stat-warning">
+                        <span>In Progress</span>
+                        <strong id="inprogress-count">11</strong>
+                    </div>
+                    <div class="stat-item stat-danger">
+                        <span>Overdue</span>
+                        <strong id="overdue-count">7</strong>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="bottom-section" class="bottom-section">
+            <article class="panel roadmap-panel">
+                <div class="panel-header">
+                    <div>
+                        <p class="panel-label">Delivery Roadmap</p>
+                        <p class="panel-subtitle">R1-R4 2026</p>
+                    </div>
+                </div>
+                <div id="roadmap-list"></div>
+            </article>
+            <article class="panel initiative-panel">
+                <div class="panel-header">
+                    <div>
+                        <p class="panel-label">Initiative by Function</p>
+                    </div>
+                </div>
+                <canvas id="initiativeChart"></canvas>
+            </article>
+            <article class="panel roi-panel">
+                <div class="roi-label">RETURN ON INVESTMENT</div>
+                <div class="roi-value" id="roi-value">2.4x</div>
+                <div class="roi-trend" id="roi-trend">+0.4x vs last quarter</div>
+                <div class="roi-timeline">
+                    <span>Q1 Start</span>
+                    <div class="timeline-track"><span class="timeline-marker"></span></div>
+                    <span>Today</span>
+                </div>
+            </article>
+        </section>
+    </div>
+
+    <script src="static/script.js"></script>
+</body>
+</html>
